@@ -1,12 +1,42 @@
 import { ConfigEnv, defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import AutoImport from 'unplugin-auto-import/vite'
+import Icons from 'unplugin-icons/vite'
+import IconResolver from 'unplugin-icons/resolver'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import path from 'node:path';
 const host = process.env.TAURI_DEV_HOST;
 // https://vite.dev/config/
 export default ({ command, mode }: ConfigEnv) => {
   console.log(command, mode);
   return defineConfig({
-    plugins: [react()],
+    plugins: [react(),
+    AutoImport({
+      imports: ['react'],
+      dirs: ['./src/components/**'],
+      dts: './src/typing/auto-imports.d.ts',
+      resolvers: [
+        IconResolver({
+          prefix: 'Icon',
+          extension: 'jsx',
+          customCollections: ['local'],
+        })
+      ],
+      eslintrc: {
+        enabled: true,
+      },
+    }),
+    Icons({
+      compiler: 'jsx',
+      jsx: 'react',
+      customCollections: {
+        local: FileSystemIconLoader(
+          'src/assets/icons',
+          svg => svg.replace(/^<svg /, '<svg fill="currentColor" '),
+        ),
+      },
+    })
+    ],
     // 防止 Vite 清除 Rust 显示的错误
     clearScreen: false,
     server: {
