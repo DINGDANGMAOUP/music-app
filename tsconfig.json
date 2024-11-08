@@ -20,10 +20,10 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "baseUrl": ".",
     "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "src/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["./src", "vite-env.d.ts"]
