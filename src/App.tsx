@@ -3,11 +3,12 @@ import './App.css';
 function App() {
   const [num, setNum] = useState(0);
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="music-app-theme">
+    <ThemeProvider defaultTheme="light" storageKey="music-app-theme">
+      <TitleBar />
       <div>
         {num}
         <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <button onClick={() => setNum((pre) => pre++)}>add</button>
+        <Button onClick={() => setNum(num + 1)}>add</Button>
       </div>
     </ThemeProvider>
   );

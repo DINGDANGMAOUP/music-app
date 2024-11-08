@@ -10,10 +10,13 @@ const host = process.env.TAURI_DEV_HOST;
 export default ({ command, mode }: ConfigEnv) => {
   console.log(command, mode);
   return defineConfig({
+    define: {
+      __OS_PLATFORM__: `"${process.platform}"`,
+    },
     plugins: [
       react(),
       AutoImport({
-        imports: ['react'],
+        imports: ['react', 'ahooks'],
         dirs: ['./src/components/**'],
         dts: './src/typing/auto-imports.d.ts',
         resolvers: [

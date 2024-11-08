@@ -1,0 +1,22 @@
+.titlebar {
+  @apply drag-region fixed inset-x-0 top-0 z-[9999] h-12 shrink-0;
+}
+
+.title-toolbar {
+  --title-bar-height: 30px;
+
+  /* height: var(--title-bar-height); */
+  left: 0;
+
+  @apply drag-region absolute right-0 flex h-8 w-screen items-center overflow-hidden border-b;
+}
+
+/* .titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  user-select: none;
+  @apply pointer-events-auto no-drag-region;
+} */
