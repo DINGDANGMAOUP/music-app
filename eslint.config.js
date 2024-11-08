@@ -27,6 +27,7 @@ export default tseslint.config(
       ],
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
     },
   },
   ...compat.config({
