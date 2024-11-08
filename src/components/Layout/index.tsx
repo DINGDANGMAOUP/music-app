@@ -1,7 +1,13 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
-  return <div>Layout</div>;
+  return (
+    <ThemeProvider defaultTheme="light" storageKey="music-app-theme">
+      <TitleBar />
+      <Outlet />
+    </ThemeProvider>
+  );
 };
 
 export default Layout;
