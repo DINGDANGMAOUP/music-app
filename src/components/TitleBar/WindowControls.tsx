@@ -3,9 +3,9 @@ import styles from './window-controls.module.css';
 import { Button } from '../ui/button';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 
-import Icon from '../Icon';
 import { cn } from '@/lib/utils';
 import { windowAtom } from '@/atoms/window-atom';
+import { Maximize, Minimize, Minus, X } from 'lucide-react';
 const WindowControls = () => {
   const [windowState, setWindowState] = useAtom(windowAtom);
   const appWindow = useMemo(() => {
@@ -31,7 +31,7 @@ const WindowControls = () => {
         size="icon"
         onClick={minimize}
       >
-        <Icon name="minus" />
+        <Minus />
       </Button>
 
       {windowState.isMaximize ? (
@@ -41,7 +41,7 @@ const WindowControls = () => {
           size="icon"
           onClick={unmaximize}
         >
-          <Icon name="minimize" />
+          <Minimize />
         </Button>
       ) : (
         <Button
@@ -50,7 +50,7 @@ const WindowControls = () => {
           size="icon"
           onClick={maximize}
         >
-          <Icon name="maximize" />
+          <Maximize />
         </Button>
       )}
 
@@ -60,7 +60,7 @@ const WindowControls = () => {
         size="icon"
         onClick={close}
       >
-        <Icon name="x" />
+        <X />
       </Button>
     </div>
   );

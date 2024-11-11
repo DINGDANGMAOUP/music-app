@@ -10,6 +10,7 @@ const Layout = () => {
           <SidePanel />
           <main className="w-full pt-8">
             <Outlet />
+            <MusicPlayer />
           </main>
         </SidebarProvider>
       </Provider>
