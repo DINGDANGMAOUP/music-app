@@ -22,6 +22,7 @@ export default ({ command, mode }: ConfigEnv) => {
           'jotai',
           'jotai/utils',
           'react-router-dom',
+          'react-i18next',
         ],
         dirs: ['./src/components/**'],
         dts: './src/typing/auto-imports.d.ts',

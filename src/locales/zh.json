@@ -1,0 +1,6 @@
+{
+  "theme.light": "浅色模式",
+  "theme.dark": "深色模式",
+  "theme.system": "跟随系统",
+  "theme.toggle": "切换主题"
+}

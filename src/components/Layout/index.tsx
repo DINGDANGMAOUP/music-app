@@ -8,7 +8,9 @@ const Layout = () => {
         <TitleBar />
         <SidebarProvider>
           <SidePanel />
-          <Outlet />
+          <main className="w-full pt-8">
+            <Outlet />
+          </main>
         </SidebarProvider>
       </Provider>
     </ThemeProvider>

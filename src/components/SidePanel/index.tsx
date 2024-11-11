@@ -1,4 +1,3 @@
-'use client';
 import {
   Sidebar,
   SidebarContent,
@@ -10,7 +9,6 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import dynamicIconImports from 'lucide-react/dynamicIconImports';
-
 import { Link } from 'react-router-dom';
 const menuData = [
   {
