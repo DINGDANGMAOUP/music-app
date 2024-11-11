@@ -5,7 +5,7 @@ import { getCurrentWindow } from '@tauri-apps/api/window';
 
 import Icon from '../Icon';
 import { cn } from '@/lib/utils';
-import { windowAtom } from '@/atoms/windowAtom';
+import { windowAtom } from '@/atoms/window-atom';
 const WindowControls = () => {
   const [windowState, setWindowState] = useAtom(windowAtom);
   const appWindow = useMemo(() => {

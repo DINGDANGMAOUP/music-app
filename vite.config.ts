@@ -16,7 +16,13 @@ export default ({ command, mode }: ConfigEnv) => {
     plugins: [
       react(),
       AutoImport({
-        imports: ['react', 'ahooks', 'jotai', 'jotai/utils'],
+        imports: [
+          'react',
+          'ahooks',
+          'jotai',
+          'jotai/utils',
+          'react-router-dom',
+        ],
         dirs: ['./src/components/**'],
         dts: './src/typing/auto-imports.d.ts',
         resolvers: [

@@ -1,11 +1,16 @@
-import React from 'react';
+import { Provider } from 'jotai';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <ThemeProvider defaultTheme="light" storageKey="music-app-theme">
-      <TitleBar />
-      <Outlet />
+      <Provider>
+        <TitleBar />
+        <SidebarProvider>
+          <SidePanel />
+          <Outlet />
+        </SidebarProvider>
+      </Provider>
     </ThemeProvider>
   );
 };
