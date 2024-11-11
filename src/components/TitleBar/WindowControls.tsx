@@ -12,13 +12,9 @@ const WindowControls = () => {
     return getCurrentWindow();
   }, []);
   const minimize = async () => appWindow.minimize();
-  const maximize = () =>
-    setWindowState((prev) => ({ isMaximize: !prev.isMaximize }));
+  const maximize = () => appWindow.maximize();
+  const unmaximize = () => appWindow.unmaximize();
   const close = async () => appWindow.close();
-  useEffect(() => {
-    if (windowState.isMaximize) appWindow.maximize();
-    else appWindow.unmaximize();
-  }, [appWindow, windowState.isMaximize]);
   useEffect(() => {
     appWindow.onResized(async () => {
       const isMaximize = await appWindow.isMaximized();
@@ -37,18 +33,27 @@ const WindowControls = () => {
       >
         <Icon name="minus" />
       </Button>
-      <Button
-        className={styles['titlebar-button']}
-        variant="ghost"
-        size="icon"
-        onClick={maximize}
-      >
-        {windowState.isMaximize ? (
+
+      {windowState.isMaximize ? (
+        <Button
+          className={styles['titlebar-button']}
+          variant="ghost"
+          size="icon"
+          onClick={unmaximize}
+        >
           <Icon name="minimize" />
-        ) : (
+        </Button>
+      ) : (
+        <Button
+          className={styles['titlebar-button']}
+          variant="ghost"
+          size="icon"
+          onClick={maximize}
+        >
           <Icon name="maximize" />
-        )}
-      </Button>
+        </Button>
+      )}
+
       <Button
         className={cn(styles['titlebar-button'], 'hover:bg-red-300')}
         variant="ghost"
