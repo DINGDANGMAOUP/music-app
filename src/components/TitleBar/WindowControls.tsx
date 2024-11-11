@@ -11,13 +11,13 @@ const WindowControls = () => {
   const appWindow = useMemo(() => {
     return getCurrentWindow();
   }, []);
-  const minimize = async () => appWindow?.minimize();
+  const minimize = async () => appWindow.minimize();
   const maximize = () =>
-    setWindowState((state) => ({ isMaximize: !state.isMaximize }));
-  const close = async () => appWindow?.close();
+    setWindowState((prev) => ({ isMaximize: !prev.isMaximize }));
+  const close = async () => appWindow.close();
   useEffect(() => {
-    if (windowState.isMaximize) appWindow?.maximize();
-    else appWindow?.unmaximize();
+    if (windowState.isMaximize) appWindow.maximize();
+    else appWindow.unmaximize();
   }, [appWindow, windowState.isMaximize]);
   useEffect(() => {
     appWindow.onResized(async () => {
