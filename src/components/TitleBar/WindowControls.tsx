@@ -1,27 +1,32 @@
-'use client';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import styles from './window-controls.module.css';
 import { Button } from '../ui/button';
-import { Window } from '@tauri-apps/api/window';
+import { getCurrentWindow } from '@tauri-apps/api/window';
 
 import Icon from '../Icon';
 import { cn } from '@/lib/utils';
+import { windowAtom } from '@/atoms/windowAtom';
 const WindowControls = () => {
-  const [isMaximize, setIsMaximize] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const [windowState, setWindowState] = useAtom(windowAtom);
   const appWindow = useMemo(() => {
-    return isClient ? new Window('main') : undefined;
-  }, [isClient]);
+    return getCurrentWindow();
+  }, []);
   const minimize = async () => appWindow?.minimize();
-  const maximize = async () => setIsMaximize(!isMaximize);
+  const maximize = () =>
+    setWindowState((state) => ({ isMaximize: !state.isMaximize }));
   const close = async () => appWindow?.close();
   useEffect(() => {
-    if (isMaximize) appWindow?.maximize();
+    if (windowState.isMaximize) appWindow?.maximize();
     else appWindow?.unmaximize();
-  }, [appWindow, isMaximize]);
+  }, [appWindow, windowState.isMaximize]);
+  useEffect(() => {
+    appWindow.onResized(async () => {
+      const isMaximize = await appWindow.isMaximized();
+      if (isMaximize !== windowState.isMaximize) {
+        setWindowState({ isMaximize: isMaximize });
+      }
+    });
+  }, [appWindow, setWindowState, windowState.isMaximize]);
   return (
     <div>
       <Button
@@ -38,7 +43,11 @@ const WindowControls = () => {
         size="icon"
         onClick={maximize}
       >
-        {isMaximize ? <Icon name="minimize" /> : <Icon name="maximize" />}
+        {windowState.isMaximize ? (
+          <Icon name="minimize" />
+        ) : (
+          <Icon name="maximize" />
+        )}
       </Button>
       <Button
         className={cn(styles['titlebar-button'], 'hover:bg-red-300')}
