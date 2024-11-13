@@ -80,6 +80,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
     audioRef.current.removeEventListener('timeupdate', listenTimeUpdate);
     audioRef.current.removeEventListener('ended', handleNextClick);
   }, [handleNextClick]);
+  //播放进度，缓冲进度，自动下一首
   useEffect(() => {
     removeListener();
     const { audio } = tracks[currentTrackIndex];
