@@ -11,7 +11,8 @@ const Layout = () => {
       album: 'Miaow',
       duration: 100,
       image: 'http://jPlayer.org/audio/mp3/Miaow-07-Bubble.jpg',
-      audio: 'http://jPlayer.org/audio/mp3/Miaow-07-Bubble.mp3',
+      audio:
+        'https://staskobzar.github.io/vue-audio-visual/file_example_MP3_1MG.mp3',
     },
     {
       id: '2',
