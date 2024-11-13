@@ -4,7 +4,7 @@ const ListenNow = () => {
   const [count, setCount] = useAtom(countAtom);
   const { t, i18n } = useTranslation();
   return (
-    <div>
+    <div className="">
       count: {count}
       <Button
         onClick={() => {
@@ -37,6 +37,12 @@ const ListenNow = () => {
       >
         zh
       </Button>
+      <Popover>
+        <PopoverTrigger>Open</PopoverTrigger>
+        <PopoverContent>
+          <Slider orientation="vertical" />
+        </PopoverContent>
+      </Popover>
     </div>
   );
 };

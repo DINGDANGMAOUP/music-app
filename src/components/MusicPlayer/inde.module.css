@@ -1,0 +1,9 @@
+.track-buffered > span:first-child {
+  background: linear-gradient(
+    90deg,
+    hsl(212.7deg 26.8% 83.9%) var(--track-buffered),
+    hsl(var(--secondary)) 0%
+  );
+
+  @apply transition-all;
+}
