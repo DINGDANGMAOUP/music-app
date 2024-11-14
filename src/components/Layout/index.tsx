@@ -1,6 +1,7 @@
 import { Provider } from 'jotai';
 import { Outlet } from 'react-router-dom';
 import { Track } from '../MusicPlayer';
+import { Toaster } from '../ui/toaster';
 
 const Layout = () => {
   const tracks: Track[] = [
@@ -32,6 +33,7 @@ const Layout = () => {
           <SidePanel />
           <main className="w-full pt-8">
             <Outlet />
+            <Toaster />
             <MusicPlayer tracks={tracks} />
           </main>
         </SidebarProvider>

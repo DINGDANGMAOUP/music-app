@@ -1,10 +1,12 @@
 import { countAtom } from '@/atoms/count-atom';
+import { useToast } from '@/hooks/use-toast';
 
 const ListenNow = () => {
   const [count, setCount] = useAtom(countAtom);
   const { t, i18n } = useTranslation();
+  const { toast } = useToast();
   return (
-    <div className="">
+    <div>
       count: {count}
       <Button
         onClick={() => {
@@ -37,12 +39,13 @@ const ListenNow = () => {
       >
         zh
       </Button>
-      <Popover>
-        <PopoverTrigger>Open</PopoverTrigger>
-        <PopoverContent>
-          <Slider orientation="vertical" />
-        </PopoverContent>
-      </Popover>
+      <Button
+        onClick={() => {
+          toast({ title: 'msg', content: 'msg' });
+        }}
+      >
+        msg
+      </Button>
     </div>
   );
 };
