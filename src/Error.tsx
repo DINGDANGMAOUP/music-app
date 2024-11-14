@@ -9,10 +9,12 @@ const Error = () => {
   console.error(error);
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="flex justify-center">
       <h1>Oops! Something went wrong.</h1>
       <p>{error.message}</p>
-      <button onClick={() => navigate(-1)}>Go back</button>
+      <Button variant="ghost" onClick={() => navigate(-1)}>
+        Go back
+      </Button>
     </div>
   );
 };
