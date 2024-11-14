@@ -100,7 +100,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
     audioRef.current.volume = volume;
   }, [volume, currentTrackIndex]);
   return (
-    <div className="fixed bottom-0 left-[var(--sidebar-width)] right-0 flex h-12 flex-row items-center justify-between border-t bg-white/30 p-2 backdrop-blur-xl">
+    <div className="fixed bottom-0 left-[var(--sidebar-width)] right-0 flex h-12 flex-row items-center justify-between border-t bg-white/30 p-2 backdrop-blur-xl dark:bg-black/30">
       <PlayerControls
         isPlaying={isPlaying}
         volume={volume}

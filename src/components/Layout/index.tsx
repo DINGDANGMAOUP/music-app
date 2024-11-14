@@ -1,7 +1,5 @@
-import { Provider } from 'jotai';
 import { Outlet } from 'react-router-dom';
 import { Track } from '../MusicPlayer';
-import { Toaster } from '../ui/toaster';
 
 const Layout = () => {
   const tracks: Track[] = [
@@ -26,19 +24,13 @@ const Layout = () => {
     },
   ];
   return (
-    <ThemeProvider defaultTheme="light" storageKey="music-app-theme">
-      <Provider>
-        <TitleBar />
-        <SidebarProvider>
-          <SidePanel />
-          <main className="w-full pt-8">
-            <Outlet />
-            <Toaster />
-            <MusicPlayer tracks={tracks} />
-          </main>
-        </SidebarProvider>
-      </Provider>
-    </ThemeProvider>
+    <SidebarProvider>
+      <SidePanel />
+      <main className="h-full w-full px-4 pb-4 pt-8">
+        <Outlet />
+        <MusicPlayer tracks={tracks} />
+      </main>
+    </SidebarProvider>
   );
 };
 

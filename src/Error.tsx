@@ -1,5 +1,5 @@
 import { useRouteError, useNavigate } from 'react-router-dom';
-
+import errorSvg from '@/assets/error.svg';
 interface RouterError {
   message: string;
 }
@@ -9,10 +9,11 @@ const Error = () => {
   console.error(error);
   const navigate = useNavigate();
   return (
-    <div className="flex justify-center">
-      <h1>Oops! Something went wrong.</h1>
-      <p>{error.message}</p>
-      <Button variant="ghost" onClick={() => navigate(-1)}>
+    <div className="relative flex min-h-screen flex-col items-center justify-center">
+      <img alt="error" src={errorSvg} width={300} height={300} />
+      <h2 className="font-sans text-xl">Oops! Something went wrong.</h2>
+      <p className="line-clamp-3">{error.message}</p>
+      <Button variant="ghost" onClick={() => navigate('/')}>
         Go back
       </Button>
     </div>
