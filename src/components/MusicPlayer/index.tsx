@@ -1,6 +1,6 @@
 import { use } from 'i18next';
 import { List } from 'lucide-react';
-import styles from './inde.module.css';
+import styles from './index.module.css';
 import React, { CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 
