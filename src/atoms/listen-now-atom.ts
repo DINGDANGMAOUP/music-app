@@ -117,20 +117,20 @@ const initAtom: Category[] = [
         description: 'Top picks for you. Updated daily.',
         albums: [
           {
-            id: '1',
-            name: 'Album 1',
-            artist: 'Artist 1',
+            id: '11',
+            name: 'Album 11',
+            artist: 'Artist 11',
             cover: 'https://via.placeholder.com/150',
           },
           {
-            id: '2',
-            name: 'Album 2',
-            artist: 'Artist 2',
+            id: '21',
+            name: 'Album 21',
+            artist: 'Artist 21',
             cover: 'https://via.placeholder.com/150',
           },
           {
-            id: '3',
-            name: 'Album 3',
+            id: '31',
+            name: 'Album 31',
             artist: 'Artist 3',
             cover: 'https://via.placeholder.com/150',
           },
@@ -143,8 +143,8 @@ const initAtom: Category[] = [
     name: 'Live',
     subfields: [
       {
-        id: '1',
-        name: 'Listen Now',
+        id: '12',
+        name: 'Listen Now2',
         description: 'Top picks for you. Updated daily.',
         albums: [
           {
