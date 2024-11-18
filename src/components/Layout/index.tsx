@@ -28,25 +28,11 @@ const Layout = () => {
       {/* Main Layout */}
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
-        <div className="flex w-64 flex-shrink-0 flex-col border-r">
-          {/* Sidebar Header */}
-          <div className="m-2">
-            <SideHeader />
-          </div>
-
-          {/* Sidebar Content */}
-          <div className="flex-1 p-2">
-            <ScrollArea>
-              <SideMenu />
-              <ScrollBar orientation="horizontal" />
-            </ScrollArea>
-          </div>
-          {/* Sidebar Footer */}
-          <div className="m-2">
-            <SideFooter />
-          </div>
-        </div>
-
+        <Sidebar
+          header={<SideHeader />}
+          content={<SideMenu />}
+          footer={<SideFooter />}
+        />
         {/* Main Content */}
         <ScrollArea className="mb-12 flex-1 px-6 pt-6">
           <Outlet />
