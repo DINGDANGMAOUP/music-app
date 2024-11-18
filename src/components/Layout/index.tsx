@@ -38,6 +38,7 @@ const Layout = () => {
           <div className="flex-1 p-2">
             <ScrollArea>
               <SideMenu />
+              <ScrollBar orientation="horizontal" />
             </ScrollArea>
           </div>
           {/* Sidebar Footer */}
@@ -49,6 +50,7 @@ const Layout = () => {
         {/* Main Content */}
         <ScrollArea className="mb-12 flex-1 px-6 pt-6">
           <Outlet />
+          <ScrollBar orientation="vertical" />
         </ScrollArea>
         <MusicPlayer tracks={tracks} />
       </div>
