@@ -49,7 +49,7 @@ const ListenNow = () => {
                   </div>
                   <Separator className="my-4" />
                   <div className="relative">
-                    <ScrollArea>
+                    <ScrollArea className="container">
                       <div className="flex space-x-4 pb-4">
                         {subfield.albums.map((album) => (
                           <AlbumArtwork
