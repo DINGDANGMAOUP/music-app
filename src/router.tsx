@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './NotFound';
 import Error from './Error';
 import ListenNow from './views/listen-now';
+import Browse from './views/browse';
 
 const Router = () => {
   const browserRouter = createBrowserRouter(
@@ -18,6 +19,10 @@ const Router = () => {
           {
             path: '/listen-now',
             element: <ListenNow />,
+          },
+          {
+            path: '/browse',
+            element: <Browse />,
           },
         ],
       },
